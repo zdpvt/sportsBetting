@@ -1,0 +1,42 @@
+<mat-card class="parecord-card">
+
+    <div class="date" >{{parecord.createdDate | date}}</div>
+
+    <!--directions_run is what used to work -->
+    <mat-icon class="type"> {{directionIcon}} </mat-icon>
+
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="editClicked()">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-menu-item (click)="deleteClicked()">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </mat-menu>
+
+    <div class="titlecal">{{parecord.calories}} Cal</div>
+    <div class="titletime">{{parecord.minutes}} Min</div>
+
+    <section class="calories">
+      <mat-progress-bar
+        [color] = "color"
+        [value]=getCalPercent(parecord)>
+      </mat-progress-bar>
+    </section>
+
+    <section class="time">
+      <mat-progress-bar
+        class="progressBar"
+        [color] = "color"
+        [value]=getMinPercent(parecord)>
+      </mat-progress-bar>
+    </section>
+
+    <div class="caloriesgoal">{{getCalPercent(parecord)}}%</div>
+    <div class="timegoal">{{getMinPercent(parecord)}}%</div>
+
+
+</mat-card>
