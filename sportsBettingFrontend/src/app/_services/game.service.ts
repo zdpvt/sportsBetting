@@ -35,6 +35,12 @@ export class GameService {
 
     } else {
       // generate random games.
+      let games: Game[] = new Game[8]();
+
+      // for (let i = 0; i < 8; i++) {
+      //   games[i] = {}
+      // }
+
     }
 
     /*else if (sport === Sport.football) {
