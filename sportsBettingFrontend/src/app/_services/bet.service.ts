@@ -25,8 +25,8 @@ export class BetService {
   getAllBetsOfUser(username: string) {
     // Would get all of a User's bets from the database, this will be simulated for now.
 
-
-
   }
+
+  // addBet() {} idk
 
 }

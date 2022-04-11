@@ -11,11 +11,11 @@ export class GameService {
   getResults() {} // Looks like they have this method for each game, idk if we can just call it and then subscribe until
   // a value is finally returned? or maybe call it once there should be results.
 
-  getUpcomingGames(sport: Sport): Observable<Game> {
+  getUpcomingGames(sport: Sport): Observable<Game[]> {
     if (sport === Sport.basketball) {
       // Really we would request from our API, however we are faking it for the framework
-      return new Observable<Game>(observer => {
-        observer.next({
+      return new Observable<Game[]>(observer => {
+        observer.next([{
           id: '1',
           sport: Sport.basketball,
           time: new Date(Date.now()), // Maybe will come as a string we can copy or a Date
@@ -30,16 +30,20 @@ export class GameService {
           totalNumber: 182.5,
           over: -110,
           under: -110
-        });
+        }]);
       });
 
-    } else if (sport === Sport.football) {
+    } else {
+      // generate random games.
+    }
+
+    /*else if (sport === Sport.football) {
 
     } else if (sport === Sport.baseball) {
 
     } else if (sport === Sport.soccer) {
 
-    }
+    } */
   }
 
 
